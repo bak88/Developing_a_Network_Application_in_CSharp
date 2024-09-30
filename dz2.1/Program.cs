@@ -2,24 +2,18 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            Console.WriteLine("Hello Please enter your name: ");
 
-            bool isWork = true;
-            string stopWord = "Exit".ToLower();
-            string message;
+            string nickName = Console.ReadLine()!;
 
-            while (isWork)
+            while (String.IsNullOrEmpty(nickName))
             {
-                Console.WriteLine("Enter message: ");
-                message = Console.ReadLine()!;
-
-                if (message.ToLower() == stopWord)
-                {
-                    isWork = false;
-                }
+                Console.WriteLine("Please enter your name: ");
+                nickName = Console.ReadLine()!;
             }
-
+            await Client.SendMessage(nickName);
         }
     }
 
