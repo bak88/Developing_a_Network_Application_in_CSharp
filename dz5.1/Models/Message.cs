@@ -4,18 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dz5._1.Model
+namespace dz5._1.Models
 {
     public partial class Message
     {
-        public int Id { get; set; } //Уникальный идентификатор сообщения
-        public string? Text { get; set; } //Текст сообщения в конце приписать =null!
-        public bool Received { get; set; } //Флаг, указывающий было ли сообщение получено
-        public int? ToUserId { get; set; } //Идентификатор получателя
-        public int? FromUserId { get; set; }//Идентификатор отправителя
-        public virtual User? ToUser { get; set; }//Навигационное свойство для получателя
-        public virtual User? FromUser { get; set; } // Навигационное свойство для отправителя
-        public List<string>? UnreadMessages { get; set; } // Список непрочитанных сообщений
+        public int Id { get; set; }
+        public string? Text { get; set; } 
+        public bool Received { get; set; } 
+        public int? ToUserId { get; set; } 
+        public int? FromUserId { get; set; }
+        public virtual User? ToUser { get; set; }
+        public virtual User? FromUser { get; set; }
+        public List<string>? UnreadMessages { get; set; }
+
+
 
     }
 }

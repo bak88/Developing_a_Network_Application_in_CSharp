@@ -4,16 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dz5._1.Model
+namespace dz5._1.Models
 {
     public partial class User
     {
-        public int Id { get; set; } //Уникальный идентификатор пользователя
-        public string? Name { get; set; }
-        //Навигационные свойства для связанных сообщений
-        public virtual ICollection<Message> ToMessages { get; set; } = new List<Message>(); //для связи один ко многим. Сообщения полуенные пользователем
-                                                                                            // добавить =new List<Message>()
-        public virtual ICollection<Message> FromMessages { get; set; } = new List<Message>(); //Сообщения, отправленные пользователем
-
+        public int Id { get; set; } 
+        public string? Name { get; set; }       
+        public virtual ICollection<Message> ToMessages { get; set; } = new List<Message>();                                                                                           
+        public virtual ICollection<Message> FromMessages { get; set; } = new List<Message>();                                                                                              
     }
 }

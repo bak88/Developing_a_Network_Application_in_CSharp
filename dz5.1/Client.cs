@@ -18,7 +18,7 @@ namespace dz5._1
             {
                 Console.WriteLine("Введите имя получателя");
 
-                string toName = Console.ReadLine();
+                string toName = Console.ReadLine()!;
                 if (String.IsNullOrEmpty(toName))
                 {
                     Console.WriteLine($"Вы не ввели имя пользователя");
@@ -26,7 +26,7 @@ namespace dz5._1
                 }
                 Console.WriteLine("Введите сообщение или <Exit> для выхода из Client.cs (внутри while (true):");
 
-                string text = Console.ReadLine();
+                string text = Console.ReadLine()!;
 
                 MessageUDP msg4 = new MessageUDP();
                 msg4.ToName = toName;
@@ -34,7 +34,7 @@ namespace dz5._1
                 msg4.Command = Command.Register;
 
 
-                string responseMsgJs = msg4.ToJson(); //было до шаблона Прототип
+                string responseMsgJs = msg4.ToJson(); 
 
                 byte[] responseData = Encoding.UTF8.GetBytes(responseMsgJs);
                 await udpClient.SendAsync(responseData, responseData.Length, ep);

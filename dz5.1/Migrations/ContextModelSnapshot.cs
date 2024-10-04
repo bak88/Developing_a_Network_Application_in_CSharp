@@ -1,6 +1,5 @@
-﻿using dz5._1.Model;
-using System;
-using Lcs9sem5pr1_DBtest.Models;
+﻿using System;
+using dz5._1.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
@@ -19,7 +18,7 @@ namespace dz5._1.Controller
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("Lcs9sem5pr1_DBtest.Models.Message", b =>
+            modelBuilder.Entity("dz5._1.Models.Message", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -52,7 +51,7 @@ namespace dz5._1.Controller
                 b.ToTable("Messages");
             });
 
-            modelBuilder.Entity("Lcs9sem5pr1_DBtest.Models.User", b =>
+            modelBuilder.Entity("dz5._1.Models.User", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -71,14 +70,14 @@ namespace dz5._1.Controller
                 b.ToTable("Users");
             });
 
-            modelBuilder.Entity("Lcs9sem5pr1_DBtest.Models.Message", b =>
+            modelBuilder.Entity("dz5._1.Models.Message", b =>
             {
-                b.HasOne("Lcs9sem5pr1_DBtest.Models.User", "FromUser")
+                b.HasOne("dz5._1.Models.User", "FromUser")
                     .WithMany("FromMessages")
                     .HasForeignKey("FromUserId")
                     .HasConstraintName("messages_from_user_id_fkey");
 
-                b.HasOne("Lcs9sem5pr1_DBtest.Models.User", "ToUser")
+                b.HasOne("dz5._1t.Models.User", "ToUser")
                     .WithMany("ToMessages")
                     .HasForeignKey("ToUserId")
                     .HasConstraintName("messages_to_user_id_fkey");
@@ -88,7 +87,7 @@ namespace dz5._1.Controller
                 b.Navigation("ToUser");
             });
 
-            modelBuilder.Entity("Lcs9sem5pr1_DBtest.Models.User", b =>
+            modelBuilder.Entity("dz5._1.Models.User", b =>
             {
                 b.Navigation("FromMessages");
 

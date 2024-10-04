@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace dz5._1
 {
-    internal enum Command
+    public enum Command
     {
-        Register,  // регистрация пользователя
-        Message,    // сообщение
-        Confirmation, //подтверждение
+        Register,  
+        Message,    
+        Confirmation, 
         GetUnreadMessages
     }
 }
