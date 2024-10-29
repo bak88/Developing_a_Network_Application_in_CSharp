@@ -7,6 +7,7 @@ namespace Lecture1._2
     {
         static void Main(string[] args)
         {
+
             //var addresses = Dns.GetHostAddresses("google.com");
 
             //Console.WriteLine("IP address");
@@ -28,11 +29,33 @@ namespace Lecture1._2
 
 
 
+            //var s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+            //s.Connect("google.com", 80);
+
+            //Console.WriteLine((s.RemoteEndPoint as IPEndPoint)?.Address);
+
+
+
+
+
             var s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-            s.Connect("google.com", 80);
+            s.Connect("77.88.44.88", 80);
 
+            Console.WriteLine("Соединение установлено: ");
             Console.WriteLine((s.RemoteEndPoint as IPEndPoint)?.Address);
+
+            s.Disconnect(true);
+
+            Task task = s.ConnectAsync("google.com", 80);
+
+            task.Wait();
+
+            Console.WriteLine("Соединение установлено: ");
+            Console.WriteLine((s.RemoteEndPoint as IPEndPoint)?.Address);
+
+
         }
     }
 }
